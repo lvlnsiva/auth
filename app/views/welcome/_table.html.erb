@@ -1,0 +1,17 @@
+ <table class="table table-bordered">
+      <tr>
+       <th>NAME</th>
+       <th>DESCRIPTION</th>
+       <th>TARGETDATE</th>
+       <th>Status</th>
+      </tr>
+        
+      <% todos.each do |todo| %>
+           <tr>
+              <td><%= link_to todo.name, todo_path(todo) %></td>
+              <td><%= todo.description %></td>
+              <td><%= todo.target_date %></td>
+              <td><%= todo.status %></td>
+            </tr>
+      <% end %>
+  </table>

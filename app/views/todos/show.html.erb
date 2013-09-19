@@ -1,0 +1,25 @@
+
+</div>
+<table class="table table-bordered">
+  <tr>
+        <td> NAME</td>
+        <td><%= @todo.name %></td>
+  </tr>
+  <tr>
+        <td> DESCRIPTION</td>
+        <td><%= @todo.description %></td>
+  </tr>
+  <tr>
+        <td> TARGETDATE</td>
+        <td><%= @todo.target_date %></td>
+  </tr>
+  <tr>
+        <td> Status</td>
+        <td><%= @todo.status %></td>
+  </tr>
+</table>
+<%= link_to 'edit', edit_todo_path(@todo.id) %> 
+<%= link_to 'back', root_path %> 
+ 
+      
+   

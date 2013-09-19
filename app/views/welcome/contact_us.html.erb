@@ -1,0 +1,54 @@
+<%= form_tag('/welcome/sendmail') do -%>
+  
+  
+
+    <div class="errors"></div>  
+      <table width="450px">
+        <tr>
+         <td valign="top">
+          <%= label_tag('first_name', nil, {:class => 'error_msg', :maxlength => 50}) %>
+         </td>
+         <td valign="top">
+             <%= text_field_tag('user[first_name]', nil, {:class => 'required',:maxlength => 50, :required => true}) %>
+         </td>
+        </tr>
+     
+        <tr>
+             <td valign="top"">
+              <%= label_tag(name = 'last_name', nil, {:class => 'error_msg', :maxlength => 50}) %>
+             </td>
+             <td valign="top">
+              <%= text_field_tag('user[last_name]', nil, {:class => 'required', :maxlength => 50 , :required => true}) %>
+             </td>
+        </tr>
+        <tr>
+             <td valign="top">
+              <%= label_tag(name = 'email', nil, {:class => 'error_msg', :maxlength => 50}) %>
+             </td>
+             <td valign="top">
+              <%= email_field_tag('user[email]', nil, {:maxlength => 50, :required => true}) %>
+             </td>
+        </tr>
+         <tr>
+               <td valign="top">
+               <%= label_tag(name = 'mobile_number', nil, {:class => 'error_msg', :maxlength => 50}) %>
+               </td>
+               <td valign="top">
+               <%= text_field_tag('user[mobile_number]', nil, {:class => 'required', :maxlength => 50, :required => true}) %>
+               </td>
+         </tr>
+         <tr>
+                 <td valign="top">
+                  <%= label_tag(name = 'comments', nil, {:class => 'error_msg', :maxlength => 50}) %>
+                 </td>
+                 <td valign="top">
+                 <%= text_area_tag(name = 'user[comments]', nil, {:class => 'required', :maxlength => 100, :required => true}) %>
+                 </td>
+          </tr>
+          <tr>
+                 <td colspan="2" style="text-align:center">
+                  <%= submit_tag "Send", {:id => "Send_button"} %>  
+                 </td>
+          </tr>
+       </table>
+<% end -%>
