@@ -16,11 +16,17 @@
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'About Us', about_us_path %></li>
         <li><%= link_to 'Contact Us', contact_us_path %></li>
-        <li><%= link_to 'Sign Up', sign_up_path %></li>
         <% if current_user %> 
           <li><%= link_to 'Change Password', change_password_user_path(current_user.id) %></a></li>
-          <li><%= link_to 'Sign Out', log_out_path %></a></li>
+          <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to "SignOut", log_out_path %></li>
+              </ul>
+            </li>
           <% else %>
+          <li><%= link_to 'Sign Up', sign_up_path %></li>
           <li><%= link_to 'Login', log_in_path %></li>
         <% end %>
       </ul>
@@ -28,34 +34,38 @@
  </div> 
   
   
- <div id="flash">
+ <div id="f    lash">
     <% unless flash[:alert].blank? %>
     <div class="alert">
-        <button class="close" "data-dismiss" = "alert">
-            &times;
-        </button>
+        <a href="#" data-dismiss="alert" class="close">×</a>
         <%= flash[:alert] %>
     </div>
     <% end %>
 
     <% if content_for?(:message) %>
     <div class="alert" style ="margin:20px 0;">
+        <a href="#" data-dismiss="alert" class="close">×</a>
         <%= yield(:message) %>
     </div>
     <%end %>
 
     <% unless flash[:notice].blank? %>
     <div class="alert alert-info" style = "<%= 'border-top:0;text-align: center;' if flash[:alert] || yield(:message) %>">
-        <button class="close" "data-dismiss" = "alert">
-            &times;
-        </button>
+        <a href="#" data-disbtnmiss="alert" class="close">×</a>
         <%= flash[:notice] %>
     </div>
     <% end %>
 </div>
 
 
+
 <%= yield %>
+<div id="footer">
+ <div class="navbar navbar-inner  navbar-fixed-bottom" style= "background: black">
+    <p class="muted credit"><center>ver 3.2.1 © Company</center></p>
+ </div>
 
 </body>
+
+
 </html>

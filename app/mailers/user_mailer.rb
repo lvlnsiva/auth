@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
   def reset_password(user, random_password)
     @user = user
     @randompassword = random_password
-     mail(:to => user.email, :notice => "A Random password sen")
+     mail(:to => user.email, :notice => "A Random password sent")
   end
   
 end

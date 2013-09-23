@@ -11,10 +11,8 @@
         </ul>
       </div>
     <% end %>
-    
         <p>
-          <%= f.label :user_id %>
-          <%= f.collection_select :user_id, User.all, :id, :email, {:selected => (@todo.user_id.present? ? @todo.user_id : current_user.id)} %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
         </p>
         <p>
           <%= f.label :name %>

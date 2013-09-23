@@ -1,10 +1,7 @@
 class WelcomeController < ApplicationController
-  
-  
+
   def index
-    
-  @todos = current_user ? current_user.todos : []
-  
+    @todos = current_user ? current_user.todos : []
   end
   
   def about_us
@@ -14,10 +11,11 @@ class WelcomeController < ApplicationController
   def contact_us
   
   end
+
   def sendmail
-     user = params['user']
-     UserMailer.contact_us(user).deliver
-     flash[:notice] ='Message sent successfully'
+    user = params['user']
+    UserMailer.contact_us(user).deliver
+    redirect_to contact_us_path, :notice => 'Message sent successfully'
   end
  
   

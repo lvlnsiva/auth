@@ -1,6 +1,5 @@
-
-</div>
-<table class="table table-bordered">
+<div style="width: 500px">
+<table border="0" cellpadding="20px">
   <tr>
         <td> NAME</td>
         <td><%= @todo.name %></td>
@@ -18,8 +17,14 @@
         <td><%= @todo.status %></td>
   </tr>
 </table>
+</div>
+<p class ="btn", style = "margin-left:500px">
+
 <%= link_to 'edit', edit_todo_path(@todo.id) %> 
+</p>
+<p class ="btn", style = "margin-right:500px">
 <%= link_to 'back', root_path %> 
+</p>
  
       
    

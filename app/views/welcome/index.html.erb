@@ -1,28 +1,38 @@
-
-
-<%= link_to 'new', new_todo_path, {:class => "pull-right", :style => "margin-right:400px"} %>
+<% if current_user %>
+  <div class ="btn", style = "margin-left:1200px">
+  <%= link_to 'new', new_todo_path %>
+  </div>
   <% if @todos.present? %>
-        <div class="tabbable"> <!-- Only required for left/right tabs -->
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#All_tab" data-toggle="tab">All</a></li>
-            <li><a href="#completed_tab" data-toggle="tab">Completed</a></li>
-            <li><a href="#Not_completed_tab" data-toggle="tab">Notcompleted</a></li>
-            <li><a href="#In_progress_tab" data-toggle="tab">InProgress</a></li>
-          </ul>
-        <div class="tab-content">
-        <div class="tab-pane active" id="All_tab"> 
-          <%= render :partial => "table", :locals => {:todos => @todos} %>
-        </div>
-        <div class="tab-pane" id="completed_tab">
-          <%= render :partial => "table", :locals => {:todos => @todos.select{ |todo| todo.status == "Completed" }} %>
-        </div>
-        <div class="tab-pane" id="Not_completed_tab">
-          <%= render :partial => "table", :locals => {:todos =>@todos.select{ |todo| todo.status == "Notcompleted" }} %>    
-        </div>
-        <div class="tab-pane" id="In_progress_tab">
-          <%= render :partial => "table", :locals => {:todos =>@todos.select{ |todo| todo.status == "InProgress" }} %>
-        </div>
-        </div>
-        </div>
-    
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#All_tab" data-toggle="tab">All</a></li>
+        <li><a href="#completed_tab" data-toggle="tab">Completed</a></li>
+        <li><a href="#Not_completed_tab" data-toggle="tab">Notcompleted</a></li>
+        <li><a href="#In_progress_tab" data-toggle="tab">InProgress</a></li>
+      </ul>
+    <div class="tab-content">
+    <div class="tab-pane active" id="All_tab">
+      <%= render :partial => "table", :locals => {:todos => @todos} %>
+    </div>
+    <div class="tab-pane" id="completed_tab">
+      <%= render :partial => "table", :locals => {:todos => @todos.select{ |todo| todo.status == "Completed" }} %>
+    </div>
+    <div class="tab-pane" id="Not_completed_tab">
+      <%= render :partial => "table", :locals => {:todos =>@todos.select{ |todo| todo.status == "Notcompleted" }} %>
+    </div>
+    <div class="tab-pane" id="In_progress_tab">
+      <%= render :partial => "table", :locals => {:todos =>@todos.select{ |todo| todo.status == "InProgress" }} %>
+    </div>
+    </div>
+    </div>
+  <% end %>
+<% else %>
+ <div class="container" width="300px">
+     <h1 style= "color:red">Introduction of to-do</h1>
+<h3>
+  The "to do" collaboration mechanism has the following advantages:
+    the list of tasks is permanently visible in the talk page of the article, i.e. where most editors will see it.
+Feel free to discuss to-do lists in the talk page of articles, to add new tasks, or to work on pending tasks. We also encourage you to contribute to other articles by visiting the list of "articles with To-dos", at Category:Wikipedia pages with to-do lists.
+</h3>
+ </P>
 <% end %>

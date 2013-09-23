@@ -3,7 +3,7 @@
   
 
     <div class="errors"></div>  
-      <table width="450px">
+      <table width="450px" style="margin-left: 500px">
         <tr>
          <td valign="top">
           <%= label_tag('first_name', nil, {:class => 'error_msg', :maxlength => 50}) %>
@@ -47,7 +47,7 @@
           </tr>
           <tr>
                  <td colspan="2" style="text-align:center">
-                  <%= submit_tag "Send", {:id => "Send_button"} %>  
+                  <%= submit_tag "Send", {:id => "Send_button", :class =>"btn"} %>
                  </td>
           </tr>
        </table>
